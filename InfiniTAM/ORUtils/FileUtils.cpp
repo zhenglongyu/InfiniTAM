@@ -145,6 +145,12 @@ static FormatType pnm_readheader(FILE *f, int *xsize, int *ysize, bool *binary)
 	else return type;
 
 	/* read size */
+	char opencv_str1[1024];
+        char opencv_str2[1024];
+        char opencv_str3[1024];
+        char opencv_str4[1024];
+        char opencv_str5[1024];
+        fscanf(f, "%s %s %s %s %s",opencv_str1,opencv_str2,opencv_str3,opencv_str4,opencv_str5);
 	if (!fscanf(f, "%i", &xs)) return FORMAT_UNKNOWN;
 	if (!fscanf(f, "%i", &ys)) return FORMAT_UNKNOWN;
 
