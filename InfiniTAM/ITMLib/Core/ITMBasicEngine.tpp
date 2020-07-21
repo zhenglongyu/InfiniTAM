@@ -100,7 +100,9 @@ void ITMBasicEngine<TVoxel,TIndex>::SaveSceneToMesh(const char *objFileName)
 {
 	if (meshingEngine == NULL) return;
 
-	ITMMesh *mesh = new ITMMesh(settings->GetMemoryType());
+	//ITMMesh *mesh = new ITMMesh(settings->GetMemoryType());
+	ITMMesh* mesh(new ITMMesh(settings->GetMemoryType(), 1 << 24));
+
 
 	meshingEngine->MeshScene(mesh, scene);
 	mesh->WriteSTL(objFileName);
